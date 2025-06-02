@@ -162,3 +162,19 @@ background-color: lightblue;
 .snowy {
 background-color: lightsteelblue;
 }
+
+.temp-red {
+    color:red;
+}
+
+.temp-orange {
+    color:orange;
+}
+
+.temp-yellow {
+    color:yellow
+}
+
+.temp-green {
+    color:teal;
+}
