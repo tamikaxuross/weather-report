@@ -41,3 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('decrease-temp').addEventListener('click', decreaseTemp);
   updateTempDisplay(); 
 });
+
+// wave 3
+const cityInput = document.getElementById('cityNameInput');
+const cityDisplay = document.getElementById('headerCityName');
+const resetButton = document.getElementById('cityNameReset');
+
+cityInput.addEventListener('input', () => {
+  cityDisplay.textContent = cityInput.value;
+});
+
+resetButton.addEventListener('click', () => {
+  cityInput.value = '';
+  cityDisplay.textContent = '';
+});
