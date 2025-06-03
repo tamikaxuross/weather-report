@@ -55,3 +55,30 @@ resetButton.addEventListener('click', () => {
   cityInput.value = '';
   cityDisplay.textContent = '';
 });
+
+// wave 5
+const updateSky = () => {
+  const sky = document.getElementById("sky");
+  const selectedSky = document.getElementById("sky-select").value;
+
+  if (selectedSky === "sunny") {
+    sky.textContent = "☀️ ☀️ ☀️ ☀️ ☀️";
+  } else if (selectedSky === "partly-cloudy") {
+    sky.textContent = "⛅🌤️⛅🌤️⛅";
+  } else if (selectedSky === "cloudy") {
+    sky.textContent = "☁️ ☁️ ☁️ ☁️ ☁️";
+  } else if (selectedSky === "rainy") {
+    sky.textContent = "🌧️🌧️🌈🌧️🌦️";
+  } else if (selectedSky === "stormy") {
+    sky.textContent = "🌩️⛈️⚡🌩️⛈️";
+  } else if (selectedSky === "snowy") {
+    sky.textContent = "🌨❄️🌨🌨❄️❄️";
+  } else if (selectedSky === "foggy") {
+    sky.textContent = "🌫️🌫️🌫️";
+  } else if (selectedSky === "windy") {
+    sky.textContent = "🍃🍃🍃🍃🍃";
+  }
+};
+
+// Attach the event listener
+document.getElementById("sky-select").addEventListener("change", updateSky);
