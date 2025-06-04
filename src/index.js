@@ -128,10 +128,11 @@ const resetButton = document.getElementById('cityNameReset');
 cityInput.addEventListener('input', () => {
   cityDisplay.textContent = cityInput.value;
 });
-
+//updated reset button and made default city New Orleans
 resetButton.addEventListener('click', () => {
-  cityInput.value = '';
-  cityDisplay.textContent = '';
+  const defaultCity = "New Orleans";
+  cityInput.value = defaultCity;
+  cityDisplay.textContent = defaultCity;
 });
 
 // wave 5
