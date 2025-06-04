@@ -41,7 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('decrease-temp').addEventListener('click', decreaseTemp);
   updateTempDisplay(); 
 }); */
-let currentTemp = null;  // or undefined, or something else
+
+////////////////////////////////
+
+
+/* let currentTemp = null;  // or undefined, or something else
 
 const updateTempDisplay  = () => {
   const tempDisplay = document.getElementById('temperature');
@@ -67,7 +71,55 @@ const updateTempDisplay  = () => {
       tempDisplay.classList.add('temp-teal');
     }
   }
+}; */
+
+let currentTemp = null;
+
+const updateTempDisplay = () => {
+  const tempDisplay = document.getElementById('temperature');
+
+  if (currentTemp === null || currentTemp === undefined) {
+    tempDisplay.textContent = '--°F';
+    tempDisplay.classList.remove('temp-red', 'temp-orange', 'temp-yellow', 'temp-green', 'temp-teal');
+  } else {
+    tempDisplay.textContent = `${currentTemp}°F`;
+    tempDisplay.classList.remove('temp-red', 'temp-orange', 'temp-yellow', 'temp-green', 'temp-teal');
+
+    if (currentTemp >= 80) {
+      tempDisplay.classList.add('temp-red');
+    } else if (currentTemp >= 70) {
+      tempDisplay.classList.add('temp-orange');
+    } else if (currentTemp >= 60) {
+      tempDisplay.classList.add('temp-yellow');
+    } else if (currentTemp >= 50) {
+      tempDisplay.classList.add('temp-green');
+    } else {
+      tempDisplay.classList.add('temp-teal');
+    }
+  }
 };
+
+// 🛑 Only update if currentTemp has a value
+const increaseTemp = () => {
+  if (currentTemp !== null && currentTemp !== undefined) {
+    currentTemp += 1;
+    updateTempDisplay();
+  }
+};
+
+const decreaseTemp = () => {
+  if (currentTemp !== null && currentTemp !== undefined) {
+    currentTemp -= 1;
+    updateTempDisplay();
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('increase-temp').addEventListener('click', increaseTemp);
+  document.getElementById('decrease-temp').addEventListener('click', decreaseTemp);
+  updateTempDisplay(); 
+});
+
 // wave 3
 const cityInput = document.getElementById('cityNameInput');
 const cityDisplay = document.getElementById('headerCityName');
@@ -195,7 +247,7 @@ document.getElementById('currentTempButton').addEventListener('click', () => {
      getLatLonForPlace(city)
     .then(getTemperatureForPlace)
     .then(temp => {
-      currentTemp = parseFloat((((temp - 273.15) * 9) / 5 + 32).toFixed(1));
+      currentTemp = parseInt((temp - 273.15) * 9 / 5 + 32);
       updateTempDisplay();                                              
     })
     .catch(() => {
