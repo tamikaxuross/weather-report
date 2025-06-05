@@ -97,6 +97,22 @@ const updateTempDisplay = () => {
       tempDisplay.classList.add('temp-teal');
     }
   }
+  updateLandscape();
+};
+
+//updates landscape images along with the temperature; according to the temp levels 
+const updateLandscape = () => {
+  const landscape = document.getElementById("landscape");
+
+  if (currentTemp >= 80) {
+    landscape.textContent = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂";
+  } else if (currentTemp >= 70) {
+    landscape.textContent = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷";
+  } else if (currentTemp >= 60) {
+    landscape.textContent = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃";
+  } else {
+    landscape.textContent = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲";
+  }
 };
 
 // 🛑 Only update if currentTemp has a value
